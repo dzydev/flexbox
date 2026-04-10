@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Playsite</title>
+    <style>
+      body {
+  background-color: salmon;
+  font-family: sans-serif;
+  text-align: center;
+  font-size: 30px;
+}
+
+button {
+  height: 50px;
+  width: 50px;
+  border-radius: 30px;
+  border:solid 3px black;
+}
+
+select {
+  width: 110px;
+  height: 30px;
+  border: solid;
+  background-color: yellowgreen;
+}
+
+input {
+  font-size: 20px;
+  text-align: center;
+}
+
+h3{
+  margin: 5px;
+}
+
+::placeholder{
+  color: grey;
+}
+
+.item{
+  border: solid 2px;
+  border-radius: 30px;
+  margin: 2px;
+  width: 13%;
+  background-color: yellowgreen;
+  align-content: center;
+}
+
+/*Flexbox*/
+.box{
+  border: solid 3px;
+  border-radius: 20px;
+  display:flex;
+  padding: 0;
+  margin: 10px;
+  background-color: teal;
+  height: 60px;
+}
+
+.contain {
+  border: solid;
+  border-radius: 20px;
+  padding: 1%;
+  background-color: seagreen;
+}
+    </style>
+  </head>
+  <body>
+    <div class="contain">
+      
+      <h3>Flexbox</h3>
+      
+      <div class="box">
+        <input class="item in1" type="text" onchange='updateFlex(".in1")' placeholder="0 1 auto"/>
+        <input class="item in2" type="text" onchange='updateFlex(".in2")' placeholder="0 1 auto"/>
+        <input class="item in3" type="text" onchange='updateFlex(".in3")' placeholder="0 1 auto"/>
+      </div>
+      
+      <select class="justifyContent" onchange="updateJustify()">
+        <option disabled selected value="justify-content">justify-content</option>
+        <option value="flex-start">flex-start</option>
+        <option value="center">center</option>
+        <option value="flex-end">flex-end</option>
+        <option value="space-around">space-around</option>
+        <option value="space-between">space-between</option>
+      </select>
+
+      <select class="alignItems" onchange="updateAlign()">
+        <option disabled selected value="align-items">align-items</option>
+        <option value="stretch">stretch</option>
+        <option value="start">start</option>
+        <option value="center">center</option>
+        <option value="end">end</option>
+      </select>
+      </div>
+    <script>
+      function updateJustify() {
+  let box = document.querySelector(".box");
+  let drop = document.querySelector(".justifyContent")
+  let bstyle = drop.value;
+  box.style.justifyContent = bstyle;
+}
+
+function updateAlign() {
+  let box = document.querySelector(".box");
+  let drop = document.querySelector(".alignItems")
+  let bstyle = drop.value;
+  box.style.alignItems = bstyle;
+}
+
+function updateFlex(cls) {
+  let input = document.querySelector(cls);
+  let flex = input.value;
+  input.style.flex = flex;
+}
+    </script>
+  </body>
+</html>
